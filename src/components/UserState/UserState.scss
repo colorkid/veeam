@@ -1,0 +1,29 @@
+.user-state {
+  display: flex;
+  justify-content: center;
+  padding: 20px 45px;
+  border-top: $blockBorder;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 15px;
+    font-size: 24px;
+
+    &--zero {
+      color: $secondaryTextColor;
+    }
+  }
+
+  &__name {
+    font-size: 11px;
+  }
+
+  @media (max-width: $mobile) {
+    text-align: center;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,29 @@
+.post {
+
+  &__title {
+    margin: 30px 0 5px 0;
+    font-size: 26px;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 24px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 1.6;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

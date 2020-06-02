@@ -1,0 +1,6 @@
+mixin Nav(links, modifier)
+    nav.navigation(class=modifier)
+        ul.navigation__ul
+            each val in links
+                li.navigation__li
+                    a(class="navigation__a" href=val.link)=val.text

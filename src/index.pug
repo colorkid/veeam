@@ -1,0 +1,34 @@
+include components/Nav/Nav
+include components/Tabs/Tabs
+-
+    var navLinks = [
+    {link: "#account", text: "Мy Account"},
+    {link: "#messages", text: "Messages"},
+    {link: "#news", text: "News"},
+    {link: "#photos", text: "Photos"},
+    {link: "#video", text: "Video"},
+    {link: "#bookmarks", text: "Bookmarks"},
+    ];
+-
+    var tabs = [
+    {id: "friends", text: "Friends", isActive: true},
+    {id: "posts", text: "Posts"},
+    ];
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        title Veeam AEM - Test
+        link(rel="icon" href="./assest/images/favicon.ico")
+    body
+        .wrapper
+            aside.wrapper__margin-right-30
+                include components/Avatar/Avatar
+                +Nav(navLinks, "wrapper__margin-top-45")
+            section.content
+                .content__top.wrapper__margin-bottom-30
+                    include components/UserInfo/UserInfo
+                .content__main
+                    +Tabs(tabs)
+                    .content__body#body
