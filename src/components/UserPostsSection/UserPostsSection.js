@@ -1,6 +1,8 @@
 import PostsLists from "../PostsLists/PostsLists";
 
-export default class UserPosts {
+const CLASS_NAME_SECTION = 'user-posts';
+
+export default class UserPostsSection {
   constructor (container) {
     this.container = container;
 
@@ -8,7 +10,7 @@ export default class UserPosts {
   }
 
   _createContainer(data) {
-    const className = 'user-posts';
+    const className = CLASS_NAME_SECTION;
     const itIsAlready = document.querySelector(`.${className}`);
     if (itIsAlready) itIsAlready.remove();
 
@@ -22,8 +24,8 @@ export default class UserPosts {
   }
 
   removeContainer() {
-    document.querySelector(`.user-posts`)
-      && document.querySelector(`.user-posts`).remove();
+    document.querySelector(`.${CLASS_NAME_SECTION}`)
+      && document.querySelector(`.${CLASS_NAME_SECTION}`).remove();
   }
 
   render(data) {

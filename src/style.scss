@@ -24,7 +24,8 @@
 @import "components/Search/Search";
 @import "components/FriendsList/FriendsList";
 @import "components/PostsLists/PostsLists";
-@import "components/UserPosts/UserPosts";
+@import "components/UserPostsSection/UserPostsSection";
+@import "components/UserFriendsSection/UserFriendsSection";
 
 * {
   box-sizing: border-box;
@@ -118,7 +119,12 @@ aside {
   }
 
   &__body {
+    min-height: 75px;
     padding: 15px 45px;
+    background-repeat: no-repeat;
+    background-size: 75px;
+    background-position: center;
+    background-image: url("./assest/images/spinner.gif");
 
     @media (max-width: $tablet) {
       padding: 15px 30px;

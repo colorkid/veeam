@@ -1,6 +1,6 @@
 import {createFullAddress} from "../utils/utils";
 import {ERROR_MESSAGE, STORAGE_TYPES} from "../types/types";
-import errorHandler from "../utils/errorHandler";
+import {handleError} from "../utils/errorHandler";
 
 export default class Storage {
   setUserPosts(data) {
@@ -58,10 +58,6 @@ export default class Storage {
     return JSON.parse(localStorage.getItem(STORAGE_TYPES.USER_POSTS));
   }
 
-  checkIsHave(key) {
-    return localStorage.getItem(key) !== null
-  }
-
   _selectUserInfo(data) {
     return {
       firstName: data.firstName,
@@ -77,7 +73,7 @@ export default class Storage {
       localStorage.setItem(dataName, data);
     }
     catch (e) {
-      errorHandler.handleError(ERROR_MESSAGE.TOO_LARGE_SIZE_AVATAR, e);
+      handleError(ERROR_MESSAGE.TOO_LARGE_SIZE_AVATAR, e);
     }
   }
 }

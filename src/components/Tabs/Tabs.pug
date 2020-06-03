@@ -1,4 +1,4 @@
 mixin Tabs(tabs, modifier)
     div.tabs(class=modifier)
         each item in tabs
-            button(class='tabs__item' class=item.isActive && 'tabs__item--active tabs__item--disabled' id=item.id)=item.text
+            button(class='tabs__item' class=item.isActive && 'tabs__item--active' id=item.id)=item.text

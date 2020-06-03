@@ -1,8 +1,4 @@
-class ErrorHandler {
-  handleError(message, e) {
-    alert(message);
-    console.log(e);
-  }
-}
-
-export default new ErrorHandler();
+export const handleError = (message, e) => {
+  alert(message);
+  console.log(e);
+};

@@ -2,9 +2,10 @@ import Pagination from "../Pagination/Pagination";
 import Search from "../Search/Search"
 import FriendsList from "../FriendsList/FriendsList";
 
+const CLASS_NAME_SECTION = 'user-friend';
 const FRIENDS_LIST_CONTAINER_CLASS = 'friend-list';
 
-export default class UserFriends {
+export default class UserFriendsSection {
   constructor (container, handlers) {
     this.container = container;
     this.handlers = handlers;
@@ -23,7 +24,7 @@ export default class UserFriends {
   }
 
   _createContainer(data) {
-    const className = 'user-friend';
+    const className = CLASS_NAME_SECTION;
     const itIsAlready = document.querySelector(`.${className}`);
     if (itIsAlready) itIsAlready.remove();
 
@@ -42,8 +43,8 @@ export default class UserFriends {
   }
 
   removeContainer() {
-    document.querySelector(`.user-friend`)
-      && document.querySelector(`.user-friend`).remove();
+    document.querySelector(`.${CLASS_NAME_SECTION}`)
+      && document.querySelector(`.${CLASS_NAME_SECTION}`).remove();
   }
 
   render(data) {

@@ -1,15 +1,15 @@
-import Api from "./api/api";
+import Api from "./Api/Api";
 import Storage from "./Storage/Storage";
 import {ERROR_MESSAGE, STORAGE_TYPES, TABS} from "./types/types";
 import UserInfo from "./components/UserInfo/UserInfo";
 import Avatar from "./components/Avatar/Avatar"
-import UserFriends from "./components/UserFriends/UserFriends";
-import UserPosts from "./components/UserPosts/UserPosts";
-import errorHandler from "./utils/errorHandler"
+import UserFriendsSection from "./components/UserFriendsSection/UserFriendsSection";
+import UserPostsSection from "./components/UserPostsSection/UserPostsSection";
+import {handleError} from "./utils/errorHandler"
 import {filterFriendsList, loadNewAvatar} from "./utils/utils";
 import Tabs from "./components/Tabs/Tabs";
 
-class App {
+class Index {
   constructor() {
     this.body = document.querySelector('#body');
 
@@ -22,11 +22,11 @@ class App {
     this.tabs = new Tabs({
       changeActiveTab: this.changeActiveTab.bind(this)
     });
-    this.userFriends = new UserFriends(this.body, {
+    this.userFriends = new UserFriendsSection(this.body, {
       changeActivePage: this.changeActivePage.bind(this),
       filterFriends: this.filterFriends.bind(this)
     });
-    this.userPosts = new UserPosts(this.body);
+    this.userPosts = new UserPostsSection(this.body);
 
     this._initApp();
   }
@@ -46,7 +46,7 @@ class App {
         this.storage.setUserPosts(result);
       })
       .catch(e => {
-        errorHandler.handleError(ERROR_MESSAGE.LOADING_ERROR, e);
+        handleError(ERROR_MESSAGE.LOADING_ERROR, e);
       });
   }
 
@@ -57,7 +57,7 @@ class App {
         this.storage.setUserFriends(result);
       })
       .catch(e => {
-        errorHandler.handleError(ERROR_MESSAGE.LOADING_ERROR, e);
+        handleError(ERROR_MESSAGE.LOADING_ERROR, e);
       });
   }
 
@@ -70,7 +70,7 @@ class App {
         this.storage.setUserAvatar(result.results[0].picture.large);
       })
       .catch(e => {
-        errorHandler.handleError(ERROR_MESSAGE.LOADING_ERROR, e);
+        handleError(ERROR_MESSAGE.LOADING_ERROR, e);
       });
   }
 
@@ -117,7 +117,7 @@ class App {
           this._turnOnOffTabs(false);
         })
         .catch(e => {
-          errorHandler.handleError(ERROR_MESSAGE.LOADING_ERROR, e);
+          handleError(ERROR_MESSAGE.LOADING_ERROR, e);
           this._turnOnOffTabs(false);
         })
     } else {
@@ -128,7 +128,7 @@ class App {
           this._turnOnOffTabs(false);
         })
         .catch(e => {
-          errorHandler.handleError(ERROR_MESSAGE.LOADING_ERROR, e);
+          handleError(ERROR_MESSAGE.LOADING_ERROR, e);
           this._turnOnOffTabs(false);
       })
     }
@@ -154,4 +154,4 @@ class App {
   }
 }
 
-new App();
+new Index();
